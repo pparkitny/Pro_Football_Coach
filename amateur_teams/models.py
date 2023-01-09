@@ -31,8 +31,8 @@ class Player(models.Model):
         ('central_attacking_midfielder', 'Central Attacking Midfielder'),
         ('left_midfielder', 'Left Midfielder'),
         ('right_midfielder', 'Right Midfielder'),
-        ('left_winger', 'Left Minger'),
-        ('right_winger', 'Right Minger'),
+        ('left_winger', 'Left Winger'),
+        ('right_winger', 'Right Winger'),
         ('centre_forward', 'Centre Forward'),
         ('striker', 'Striker'),
     ]

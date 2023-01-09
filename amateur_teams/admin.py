@@ -1,7 +1,6 @@
 from django.contrib import admin
-
-# Register your models here.
 from .models import Coach, Team, Player, Stats, Pace, Shoting, Passing, Dribling, Defending, Physicality, Goalkeeping
+
 
 admin.site.register(Coach)
 admin.site.register(Team)
@@ -14,3 +13,7 @@ admin.site.register(Dribling)
 admin.site.register(Defending)
 admin.site.register(Physicality)
 admin.site.register(Goalkeeping)
+
+
+# @admin.register(Team)
+# class TeamAdmin(admin.ModelAdmin):
