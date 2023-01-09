@@ -50,10 +50,99 @@ class Player(models.Model):
 
 
 class Stats(models.Model):
-    pace = models.OneToOneField('pace', on_delete=models.CASCADE)
-    shoting = models.OneToOneField('shoting', on_delete=models.CASCADE)
-    passing = models.OneToOneField('passing', on_delete=models.CASCADE)
-    dribling = models.OneToOneField('dribling', on_delete=models.CASCADE)
-    defending = models.OneToOneField('defending', on_delete=models.CASCADE)
-    physicality = models.OneToOneField('physicality', on_delete=models.CASCADE)
-    goalkeeping = models.OneToOneField('physicality', on_delete=models.CASCADE)
+    pace = models.OneToOneField('Pace', on_delete=models.CASCADE)
+    shoting = models.OneToOneField('Shoting', on_delete=models.CASCADE)
+    passing = models.OneToOneField('Passing', on_delete=models.CASCADE)
+    dribling = models.OneToOneField('Dribling', on_delete=models.CASCADE)
+    defending = models.OneToOneField('Defending', on_delete=models.CASCADE)
+    physicality = models.OneToOneField('Physicality', on_delete=models.CASCADE)
+    goalkeeping = models.OneToOneField('Goalkeeping', on_delete=models.CASCADE)
+
+
+class Pace(models.Model):
+    sprint_speed = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
+    acceleration = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
+
+
+class Shoting(models.Model):
+    finishing = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
+    positioning = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
+    shot_power = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
+    long_shots = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
+    penalties = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
+    volleys = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
+
+
+class Passing(models.Model):
+    vision = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
+    crossing = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
+    fk_accuracy = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
+    long_passing = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
+    short_passing = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
+    curve = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
+
+
+class Dribling(models.Model):
+    agility = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
+    balance = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
+    reactions = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
+    composure = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
+    ball_control = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
+    dribbling = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
+
+
+class Defending(models.Model):
+    interceptions = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
+    heading_accuracy = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
+    defensive_awareness = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
+    standing_tackle = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
+    sliding_tackle = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
+
+
+class Physicality(models.Model):
+    jumping = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
+    stamina = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
+    strength = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
+    aggression = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
+
+
+class Goalkeeping(models.Model):
+    gk_diving = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
+    gk_handling = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
+    gk_kicking = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
+    gk_positioning = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
+    gk_reflexes = models.PositiveIntegerField(
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])
