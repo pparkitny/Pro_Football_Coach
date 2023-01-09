@@ -48,6 +48,7 @@ class Player(models.Model):
     name = models.CharField(max_length=128)
     surname = models.CharField(max_length=128)
     age = models.PositiveIntegerField()
+    height = models.PositiveIntegerField(default=170)
     team = models.ForeignKey('Team', on_delete=models.CASCADE)
     position = models.CharField(max_length=128, choices=POSITION_CHOICES)
     preferred_foot = models.CharField(
@@ -75,6 +76,9 @@ class Pace(models.Model):
     acceleration = models.PositiveIntegerField(
         default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])  # The rate at which a player’s running speed increases.
 
+    def __str__(self):
+        return f"Sprint speed = {self.sprint_speed} | Acceleration = {self.acceleration}"
+
 
 class Shoting(models.Model):
     # A player’s general shooting strength and accuracy.
@@ -90,6 +94,9 @@ class Shoting(models.Model):
         default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])  # A player’s accuracy for taking penalty shots.
     volleys = models.PositiveIntegerField(
         default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])  # The ability of a player to perform volleys.
+
+    def __str__(self):
+        return f"Finishing  = {self.finishing} | Positioning = {self.positioning} | Shot Power = {self.shot_power} | Long Shots = {self.long_shots} | Penalties = {self.penalties} | Volleys = {self.volleys}"
 
 
 class Passing(models.Model):
@@ -107,6 +114,9 @@ class Passing(models.Model):
     curve = models.PositiveIntegerField(
         default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])  # A player’s ability to curve the ball when passing and shooting.
 
+    def __str__(self):
+        return f"Vision  = {self.vision} | Crossing = {self.crossing} | Free Kicks = {self.fk_accuracy} | Long Passing = {self.long_passing} | Short Passing = {self.short_passing} | Curve = {self.curve}"
+
 
 class Dribling(models.Model):
     # A player’s ability to carry the ball and past an opponent.
@@ -123,6 +133,9 @@ class Dribling(models.Model):
     dribbling = models.PositiveIntegerField(
         default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])  # A player’s ability to carry the ball and past an opponent.
 
+    def __str__(self):
+        return f"Agility  = {self.agility} | Balance = {self.balance} | Reactions = {self.reactions} | Composure = {self.composure} | Ball Control = {self.ball_control} | Dribbling = {self.dribbling}"
+
 
 class Defending(models.Model):
     # A player’s ability to defend.
@@ -137,6 +150,9 @@ class Defending(models.Model):
     sliding_tackle = models.PositiveIntegerField(
         default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])  # The ability to pull off a sliding tackle.
 
+    def __str__(self):
+        return f"Interceptions  = {self.interceptions} | Heading Accuracy = {self.heading_accuracy} | Defensive Awareness = {self.defensive_awareness} | Standing Tackle = {self.standing_tackle} | Sliding Tackle = {self.sliding_tackle}"
+
 
 class Physicality(models.Model):
     # Represent the physical and bodily state of a player.
@@ -148,6 +164,9 @@ class Physicality(models.Model):
         default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])  # The quality or state of being physically strong.
     aggression = models.PositiveIntegerField(
         default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])  # A player’s degree of aggressiveness.
+
+    def __str__(self):
+        return f"Jumping  = {self.jumping} | Stamina = {self.stamina} | Strength = {self.strength} | Aggression = {self.aggression}"
 
 
 class Goalkeeping(models.Model):
@@ -162,3 +181,6 @@ class Goalkeeping(models.Model):
         default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])  # Ability to position as goalkeeper
     gk_reflexes = models.PositiveIntegerField(
         default=1, validators=[MinValueValidator(1), MaxValueValidator(99)])  # A goalkeeper reaction time in response to events taking place around him.
+
+    def __str__(self):
+        return f"GK_Diving  = {self.gk_diving} | GK_Handling = {self.gk_handling} | GK_Kicking = {self.gk_kicking} | GK_Positioning = {self.gk_positioning} | GK_Reflexes = {self.gk_reflexes}"
