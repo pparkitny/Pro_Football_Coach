@@ -7,9 +7,15 @@ class Coach(models.Model):
     surname = models.CharField(max_length=128)
     team = models.ForeignKey('Team', on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f"{self.name} {self.surname} - Coach of {self.team}"
+
 
 class Team(models.Model):
     name = models.CharField(max_length=128)
+
+    def __str__(self):
+        return f"{self.name}"
 
 
 class Player(models.Model):
@@ -47,6 +53,9 @@ class Player(models.Model):
     preferred_foot = models.CharField(
         max_length=128, choices=FOOT_CHOICES, default=RIGHT_FOOT)
     stats = models.OneToOneField('Stats', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.name} {self.surname} - Player from {self.team}"
 
 
 class Stats(models.Model):
