@@ -3,7 +3,7 @@ from .models import Coach, Team, Player, Stats, Pace, Shoting, Passing, Dribling
 
 
 class CoachSerializer(serializers.ModelSerializer):
-    team_name = serializers.CharField(source='team.name')
+    team_name = serializers.CharField(source='team.name', read_only=True)
 
     class Meta:
         model = Coach
