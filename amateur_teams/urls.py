@@ -4,6 +4,6 @@ from django.conf import settings
 
 
 urlpatterns = [
-    path('', views.getPlayer),
-    path('post/', views.postPlayer),
+    path('coaches/', views.coach_list),
+    path('coaches/<int:pk>/', views.coach_detail),
 ]
