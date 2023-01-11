@@ -2,9 +2,25 @@ from rest_framework import serializers
 from .models import Coach, Team, Player, Stats, Pace, Shoting, Passing, Dribling, Defending, Physicality, Goalkeeping
 
 
-class CoachSerializer(serializers.ModelSerializer):
-    team_name = serializers.CharField(source='team.name', read_only=True)
+class TeamSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Team
+        fields = ['id', 'name']
 
+
+class CoachSerializer(serializers.ModelSerializer):
     class Meta:
         model = Coach
-        fields = ['id', 'name', 'surname', 'team_name']
+        fields = '__all__'
+
+
+class PlayerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Player
+        fields = '__all__'
+
+
+class StatsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Stats
+        fields = '__all__'

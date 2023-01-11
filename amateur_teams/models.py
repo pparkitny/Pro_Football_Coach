@@ -5,7 +5,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 class Coach(models.Model):
     name = models.CharField(max_length=128)
     surname = models.CharField(max_length=128)
-    team = models.ForeignKey(
+    team = models.OneToOneField(
         'Team', on_delete=models.CASCADE, null=True)
 
     def __str__(self):
