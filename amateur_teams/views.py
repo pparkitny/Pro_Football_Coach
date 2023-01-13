@@ -1,6 +1,6 @@
 from .serializers import CoachSerializer, TeamSerializer, PlayerSerializer, StatsSerializer
 from rest_framework import generics
-from .models import Coach, Team, Player, Stats, Pace, Shoting, Passing, Dribling, Defending, Physicality, Goalkeeping
+from .models import Coach, Team, Player, Stats
 
 
 class CoachList(generics.ListCreateAPIView):
